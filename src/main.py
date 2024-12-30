@@ -4,7 +4,7 @@ from const import *
 from game import Game
 
 
-class Main():
+class Main:
     
     def __init__(self):
         pygame.init()
@@ -13,9 +13,13 @@ class Main():
         self.game = Game()
     
     def mainloop(self):
-        self.game.show_bg(self.screen)
+        screen = self.screen
+        game = self.game
         
         while True:
+            game.show_bg(screen)
+            game.show_pieces(screen)
+            
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
